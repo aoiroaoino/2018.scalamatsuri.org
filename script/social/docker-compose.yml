@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  social:
+    build: .
+    command:
+      - python
+      - count.py
+    env_file:
+      - fb.env
+    volumes:
+      - "../../_candidates_ja:/app/_candidates_ja"
+      - "../../_candidates_en:/app/_candidates_en"
+      - "../:/app/work"
+    networks:
+      - social-net
+
+networks:
+  social-net:
